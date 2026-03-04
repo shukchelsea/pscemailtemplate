@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FET.my – Free Email Template | Partner Support Center MY</title>
+<meta name="description" content="Free Email Template generator for E-Commerce Partner Support Center Malaysia. Generate courier and seller email templates instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo">FET<span class="dot">.</span>my</div>
+    <div class="logo-sub">Free Email Template</div>
+  </div>
+  <div class="header-center" id="liveIndicator">
+    <span class="live-dot"></span>
+    <span class="live-label">Live Preview</span>
+  </div>
+  <span class="header-badge">Partner Support Center · MY</span>
+</header>
+
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside id="sidebar">
+    <div class="search-wrap">
+      <div class="search-box">
+        <input type="text" id="si" placeholder="Search categories or situations…" autocomplete="off" spellcheck="false">
+        <span class="s-icon" id="sico">⌕</span>
+        <button class="s-clear" id="sclr" onclick="clrSearch()" title="Clear search">✕</button>
+      </div>
+    </div>
+    <div class="sidebar-hint">Click any situation to generate instantly</div>
+    <div class="category-list" id="catList"></div>
+  </aside>
+
+  <!-- ── CENTER ── -->
+  <div class="center">
+
+    <!-- Selected Tag -->
+    <div class="panel-top">
+      <div class="sel-tag" id="selTag">
+        <span class="sel-tag-cat" id="selTagTxt">—</span>
+        <span class="sel-tag-sit" id="selSitTxt"></span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-section">
+      <div class="form-hdr">
+        <h3>📋 Shipment Details <span class="form-hint-inline">(fills template live)</span></h3>
+        <div class="tab-sw">
+          <button class="tab-btn ac" id="tC" onclick="setMode('courier')">📦 To Courier</button>
+          <button class="tab-btn" id="tS" onclick="setMode('seller')">🏪 To Seller</button>
+        </div>
+      </div>
+      <div class="fg3">
+        <div class="ff">
+          <label>Order Number</label>
+          <input id="f_ord" placeholder="e.g. ORD-20240301-001" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Tracking Number</label>
+          <input id="f_trk" placeholder="e.g. MY123456789" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Courier / Partner</label>
+          <input id="f_cur" placeholder="e.g. J&T, Ninja, Pos Laju" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Seller Name</label>
+          <input id="f_snm" placeholder="e.g. TechMart MY" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Seller Short Code / ID</label>
+          <input id="f_sid" placeholder="e.g. TECHMY-001" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Date of Incident</label>
+          <input type="date" id="f_dt" oninput="liveUpdate()">
+        </div>
+      </div>
+      <div class="fg2">
+        <div class="ff">
+          <label>Additional Details / Notes</label>
+          <input id="f_xtr" placeholder="e.g. item value, specific context…" oninput="liveUpdate()">
+        </div>
+        <div class="ff">
+          <label>Courier Contact / Team</label>
+          <input id="f_cc" placeholder="e.g. ops@courier.com.my" oninput="liveUpdate()">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-gen" id="gBtn" onclick="gen()">⚡ Generate</button>
+        <button class="btn-clr" onclick="clrAll()">✕ Clear</button>
+        <span class="hint">Ctrl+Enter · Auto-updates as you type</span>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div class="out-wrap">
+      <div class="out-hdr">
+        <span class="out-title">
+          📧 Email Template
+          <span class="mode-badge mc" id="mbC">TO COURIER</span>
+          <span class="mode-badge ms" id="mbS">TO SELLER</span>
+        </span>
+        <div class="out-acts">
+          <button class="btn-cs" id="csBtn" onclick="cpySubj()">Copy Subject</button>
+          <button class="btn-cp" id="cpBtn" onclick="cpyBody()">Copy Body</button>
+        </div>
+      </div>
+      <div class="out-box" id="outBox">
+        <div class="subj-row" id="subjRow" style="display:none">
+          <span class="subj-lbl">Subject:</span>
+          <span class="subj-val" id="subjVal"></span>
+        </div>
+        <div id="emailOut" class="email-body">
+          <div class="ph">
+            <div class="ph-icon">✉️</div>
+            <div class="ph-title">Select a situation to get started</div>
+            <div class="ph-steps">
+              <div class="ph-step">① Click any situation in the left panel → template generates instantly</div>
+              <div class="ph-step">② Switch between 📦 Courier and 🏪 Seller tabs</div>
+              <div class="ph-step">③ Fill in the form fields above → template updates live</div>
+              <div class="ph-step">④ Copy Subject or Body when ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /center -->
+</div><!-- /layout -->
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
